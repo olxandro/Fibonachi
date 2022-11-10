@@ -24,13 +24,16 @@ public class Main {
         }
         System.out.println();
 
-        User[] arr = new User[3];
+        User[] arr = new User[3]; // создаем массив
+        // создание объектов для заполнения массива
         User vania = new User("Иван", 34, "89517238347");
         User vasia = new User("Вася", 56, "89117237341");
         User kolya = new User("Иван", 34, "89497238346");
+        // заполнение массива объектами
         arr[0] = vania;
         arr[1] = vasia;
         arr[2] = kolya;
+        // создание карты и заполнения ее 
         Map<String, String> users = new HashMap<>();
         for (int i = 0; i < arr.length - 1; i++) {
             users.put(arr[i].getPhone(), arr[i].getName());
