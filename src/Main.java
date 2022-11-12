@@ -1,6 +1,8 @@
 import java.lang.reflect.Array;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class Main {
     public static void main(String[] args) {
@@ -35,10 +37,19 @@ public class Main {
         arr[2] = kolya;
         // создание карты и заполнения ее 
         Map<String, String> users = new HashMap<>();
-        for (int i = 0; i < arr.length - 1; i++) {
+        // с помощью обычного цикла for
+        for (int i = 0; i < arr.length; i++) {
             users.put(arr[i].getPhone(), arr[i].getName());
         }
+        // с помощью цикла forich
+        for (User user : arr) {
+            users.put(user.getPhone(), user.getName());
+        }
+        // с помощью стримов
+        Map<String, String> users1;
+        users1 = Stream.of(arr).collect(Collectors.toMap(e -> e.getPhone(), e -> e.getName()));
         System.out.println(users);
+        System.out.println(users1);
 
     }
 }
